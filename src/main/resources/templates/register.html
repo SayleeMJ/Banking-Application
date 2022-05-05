@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="Home.css"/>
+    <script src="https://kit.fontawesome.com/e3fa0230bd.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<header>
+    <h2><a href="/">ABC BANK</a></h2>
+    <nav>
+
+        <li><a href="/">Home</a></li>
+        <li><a href="login">Login</a></li>
+    </nav>
+</header>
+<section class="banner-area">
+    <div class="banner-img"></div>
+    <div class="centerr">
+        <h1>Register</h1>
+        <div th:text="${message}"/>
+        <form method="post" action="/login">
+            <div class="txt_field1">
+                <input type="text" name="customerName" id="customerName" required/>
+                <span></span>
+                <label>Username</label>
+            </div>
+            <div class="txt_field1">
+                <input type="password" name="password" id="password" required/>
+                <span></span>
+                <label>Password</label>
+            </div>
+            <div class="txt_field1">
+                <input type="password" name="confirmpassword" id="confirmpassword" required/>
+                <span></span>
+                <label>Confirm Password</label>
+            </div>
+            <div class="txt_field1">
+                <input type="email" name="email" id="email" required/>
+                <span></span>
+                <label>Email</label>
+            </div>
+            <div class="txt_field1">
+                <input type="text" name="customerAddress" id="customerAddress" required/>
+                <span></span>
+                <label>Address</label>
+            </div>
+            <div class="txt_field1">
+                <input type="text" name="phoneNumber" id="phoneNumber" required/>
+                <span></span>
+                <label>Contact</label>
+            </div>
+            <input type="submit" value="Register">
+            <div class="signup_link">
+                Already a member? <a href="login">Login</a>
+            </div>
+        </form>
+    </div>
+</section>
+</body>
+</html>

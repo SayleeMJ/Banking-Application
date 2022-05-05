@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="Home.css"/>
+    <script src="https://kit.fontawesome.com/e3fa0230bd.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<header>
+    <h2><a href="/">ABC BANK</a></h2>
+    <nav>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/accountDetails">Account Details</a></li>
+        <li><a href="/deposit">Deposit</a></li>
+        <li><a href="/">Logout</a></li>
+    </nav>
+</header>
+<section class="banner-area">
+    <div class="banner-img"></div>
+    <div class="centerr">
+        <h1>User Details</h1>
+        <div th:text="${successMessage}"/>
+        <form action="/updateDetails">
+            <div class="txt_field">
+                <input type="text" name="name" id="name" th:value="${name}"/>
+                <span></span>
+                <label>Username</label>
+            </div>
+            <div class="txt_field">
+                <input type="text" name="email" id="email" th:value="${email}"/>
+                <span></span>
+                <label>Email</label>
+            </div>
+            <div class="txt_field">
+                <input type="text" name="address" id="address" th:value="${address}"/>
+                <span></span>
+                <label>Address</label>
+            </div>
+            <div class="txt_field">
+                <input type="text" name="phone" id="phone" th:value="${phone}"/>
+                <span></span>
+                <label>Contact</label>
+            </div>
+            <div class="signup_link">
+                Want to update? <a href="/updateDetails">Update</a>
+            </div>
+        </form>
+    </div>
+</section>
+</body>
+</html>

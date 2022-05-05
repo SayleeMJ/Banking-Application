@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" href="/Home.css"/>
+    <script src="https://kit.fontawesome.com/e3fa0230bd.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<header>
+    <h2><a href="/">ABC BANK</a></h2>
+    <nav>
+        <li><a href="/home">Home</a></li>
+        <li><a href="/userDetails">View Details</a></li>
+        <li><a href="/deposit">Deposit</a></li>
+        <li><a href="/transfer">Transfer</a></li>
+        <li><a href="login">Logout</a></li>
+    </nav>
+</header>
+<section class="banner-area">
+    <div class="banner-img"></div>
+    <div class="centerr">
+        <h1>User Details</h1>
+        <div th:text="${successMessage}"/>
+        <form action="/updateDetails">
+            <div class="txt_field1">
+                <input type="text" th:value="${accountId}" id="accountId"/>
+                <span></span>
+                <label>Account Id</label>
+            </div>
+            <div class="txt_field1">
+                <input type="text" th:value="${accountBalance}" id="accountBalance"/>
+                <span></span>
+                <label>Balance</label>
+            </div>
+            <div class="txt_field1">
+                <input type="text" th:value="${bankName}" id="bankName"/>
+                <span></span>
+                <label>Bank Name</label>
+            </div>
+            <div class="txt_field1">
+                <input type="text" th:value="${bankBranch}" id="bankBranch"/>
+                <span></span>
+                <label>Bank Branch</label>
+            </div>
+            <div class="txt_field1">
+                <input type="text" th:value="${ifscCode}" id="ifscCode"/>
+                <span></span>
+                <label>IFSC Code</label>
+            </div>
+        </form>
+    </div>
+</section>
+</body>
+</html>

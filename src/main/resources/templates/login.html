@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" href="/Home.css"/>
+    <script src="https://kit.fontawesome.com/e3fa0230bd.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<header>
+    <h2><a href="/">ABC BANK</a></h2>
+    <nav>
+        <li><a href="/">Home</a></li>
+        <li><a href="/register">Register</a></li>
+    </nav>
+</header>
+<section class="banner-area">
+    <div class="banner-img"></div>
+    <div class="centerr">
+        <h1>Login</h1>
+        <div th:text="${message}"/>
+        <form action="/home" method="post">
+            <div class="txt_field">
+                <input type="email" name="email" id="email" required/>
+                <span></span>
+                <label>User Email</label>
+            </div>
+            <div class="txt_field">
+                <input type="password" name="password" id="password" required/>
+                <span></span>
+                <label>Password</label>
+            </div>
+            <div class="pass"><a href="/forgotPassword">Forgot Password?</a></div>
+            <input type="submit" value="Login">
+            <div class="signup_link">
+                Not a member? <a href="register">Signup</a>
+            </div>
+        </form>
+    </div>
+</section>
+</div>
+</body>
+</html>
