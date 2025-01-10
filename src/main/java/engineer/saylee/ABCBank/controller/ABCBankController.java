@@ -63,7 +63,7 @@ public class ABCBankController {
 
 
     @RequestMapping("/login")
-    public String login(Model model) {
+    public String login() {
         return "login";
     }
 
@@ -118,7 +118,7 @@ public class ABCBankController {
         model.addAttribute("email", customer.getEmail());
         model.addAttribute("address", customer.getCustomerAddress());
         model.addAttribute("phone", customer.getPhoneNumber());
-        return "userDetails";
+        return "UserDetails";
 
     }
 
@@ -143,7 +143,7 @@ public class ABCBankController {
         model.addAttribute("address", customer.getCustomerAddress());
         model.addAttribute("phone", customer.getPhoneNumber());
         model.addAttribute("successMessage", "Updation Successful!!!");
-        return "userDetails";
+        return "UserDetails";
     }
 
 
@@ -171,11 +171,9 @@ public class ABCBankController {
         Double transferAmount = Double.parseDouble(request.getParameter("transferAmount"));
         if (!(transferAmount >= 0)) {
             model.addAttribute("message", "Amount not valid!!!");
-            return "transfer";
         } else {
             if (!(myAccount.getAccountBalance() > transferAmount)) {
                 model.addAttribute("message", "Insufficient Balance!!!");
-                return "transfer";
             } else {
                 Account toAccount = accountService.getAccountByAccountId(Long.parseLong(request.getParameter("toAccount")));
                 if (!(Objects.isNull(toAccount))) {
@@ -186,14 +184,13 @@ public class ABCBankController {
                     toAccount.setAccountBalance(toAccountBalance);
                     accountService.saveAccount(toAccount);
                     model.addAttribute("successMessage", "heyyy!!!It's done transfered Successfully!!!");
-                    return "transfer";
                 } else {
                     model.addAttribute("message", "Account does not exist!!!");
-                    return "transfer";
                 }
             }
 
         }
+        return "transfer";
     }
     //displays deposit
 
@@ -206,14 +203,13 @@ public class ABCBankController {
     public String afterDeposit(HttpServletRequest request, Model model) {
         if (!((Double.parseDouble(request.getParameter("depositAmount"))) >= 0)) {
             model.addAttribute("message", "Amount is Invalid!!!Try again");
-            return "deposit";
         } else {
             Account myAccount = accountService.getAccountByCustomerId(activeCustomer);
             Double updatedBalance = (myAccount.getAccountBalance()) + Double.parseDouble(request.getParameter("depositAmount"));
             myAccount.setAccountBalance(updatedBalance);
             accountService.saveAccount(myAccount);
             model.addAttribute("successMessage", "heyy!!!amount Deposited successfully!!!");
-            return "deposit";
         }
+        return "deposit";
     }
 }
